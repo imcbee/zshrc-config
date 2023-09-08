@@ -7,8 +7,8 @@ dibnet_3='~/code/dibnet-3'
 icf='~/code/dibnet'
 
 # change directories
-alias code='cd ~/code'
-alias pull-all='code; find . -mindepth 2 -maxdepth 2 -type d -print -exec git -C {} pull \;'
+alias project='cd ~/code'
+alias pull-all='project; find . -mindepth 2 -maxdepth 2 -type d -print -exec git -C {} pull \;'
 alias bah-angular-uswds='cd '$dibnet_3'/bah-angular-uswds'
 alias dibnet-docker='cd '$dibnet_3'/dibnet-docker'
 alias dibnet-services='cd '$dibnet_3'/dibnet-services'
@@ -22,6 +22,8 @@ alias dibnet-2='cd '$dibnet_2''
 
 # build scripts
 alias build-all='dibnet-docker; ./scripts/build-all.sh skipTests'
+alias build-all-clean='dibnet-docker; ./scripts/build-all.sh clean'
+alias build-service='dibnet-services; mvn clean install -DskipTests -Dspotbugs.skip=true'
 alias build-icf='dibnet-docker; ./scripts/build-icf.sh skipTests'
 alias cleanup='dibnet-docker; ./scripts/cleanup.sh'
 alias deploy-lite-icf='dibnet-docker; ./scripts/build-all.sh skipTests; ./scripts/build-icf.sh skipTests; ./scripts/start.sh lite-icf'
@@ -76,3 +78,8 @@ alias gf='git reflog'
 
 # leverage an alias from the ~/.gitconfig
 alias gh='git hist'
+
+# -------------------------------------------------------------------
+# p10K
+# -------------------------------------------------------------------
+alias update-p10k='git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull'

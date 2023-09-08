@@ -1,19 +1,21 @@
-# The completion system activation
-autoload -Uz compinit
-compinit
+zmodload zsh/zprof
+# # The completion system activation
+# autoload -Uz compinit
+# compinit
 
-# extended history size
-export HISTSIZE=1000000000
-export SAVEHIST=1000000000
-setopt EXTENDED_HISTORY
+# # extended history size
+# export HISTSIZE=1000000000
+# export SAVEHIST=1000000000
+# setopt EXTENDED_HISTORY
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+    # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+    # Initialization code that may require console input (password prompts, [y/n]
+    # confirmations, etc.) must go above this block; everything else may go below.
     if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
         source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
     fi
+    
     # -------------------------- OHMYZSH -----------------------------
     # If you come from bash you might have to change your $PATH.
     # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -122,23 +124,17 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
     
 fi
 
-# Homebrew
-export PATH="/opt/homebrew/bin:$PATH"
-
-# Prints.
-print -Pr -- 'Hello, %n. Today is %D{%A}. I hope you have a great day!'
-
 # Aliases.zsh
 [[ -f ~/.config/zsh/aliases.zsh ]] && source ~/.config/zsh/aliases.zsh
-
 # Functions.zsh
 [[ -f ~/.config/zsh/functions.zsh ]] && source ~/.config/zsh/functions.zsh
 
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
 
 # NVM
-export NVM_DIR=~/.nvm
 #source $(brew --prefix nvm)/nvm.sh
-
+#export NVM_DIR=~/.nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -147,13 +143,22 @@ export NVM_DIR="$HOME/.nvm"
 export MVN_HOME=~/Tools/apache-maven-3.9.2
 export PATH=$MVN_HOME/bin:$PATH
 
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Load Angular CLI autocompletion.
+#source <(ng completion script)
+
+# Java
+#export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8.0)
+
+# Prints.
+#print -Pr -- 'Hello, %n. Today is %D{%A}. I hope you have a great day!'
+
 # Starship
 if [[ $TERM_PROGRAM == "WarpTerminal" ]]; then
     eval "$(starship init zsh)"
 fi
 
 
-
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
