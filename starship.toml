@@ -54,12 +54,12 @@ style = "bg:#9A348E"
 disabled = false # Disabled by default
 
 [os.symbols]
-#Macos = " "
-Macos = "🍏 "
+#Macos = "    󰀵"
+Macos = " "
 Windows = " "
 
 [directory]
-format = "[ 📁 $path ]($style)"
+format = "[  $path ]($style)"
 style = "bg:#DA627D"
 truncation_length = 3
 truncate_to_repo = true # truncates directory to root folder if in github repo
@@ -68,7 +68,7 @@ truncation_symbol = "…/"
 # Here is how you can shorten some long paths by text replacement
 # similar to mapped_locations in Oh My Posh:
 [directory.substitutions]
-"Documents" = "󰈙 "
+"Documents" = "󰈙"
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
@@ -101,6 +101,7 @@ format = '[ $symbol($version) ]($style)'
 [git_branch]
 #symbol = " "
 symbol = ""
+#symbol = ""
 truncation_symbol = "…"
 truncation_length = 40
 style = "bg:#FCA17D"
@@ -108,7 +109,7 @@ format = '[ $symbol$branch(:$remote_branch) ]($style)'
 
 [git_commit]
 commit_hash_length = 7
-tag_symbol = "🏷"
+tag_symbol = ""
 tag_disabled = false
 tag_max_candidates = 0
 only_detached = true
@@ -123,22 +124,22 @@ revert = "REVERTING"
 bisect = "BISECTING"
 am = "AM"
 am_or_rebase = "AM/REBASE"
-cherry_pick = '[🍒 PICKING](bold red)'
+cherry_pick = '[ PICKING](bold red)'
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 
 [git_status]
-up_to_date = '✅'
-#up_to_date = '✓'
+up_to_date = ''
+#up_to_date = '✓   '
 conflicted = "⚔️"
-ahead = "⬆️×${count}"
-behind = "⬇️×${count}"
-diverged = "🔱×${↑ahead_count}×${↓behind_count}"
-untracked = "❔×${count}"
-stashed = "📦"
-modified = "📝×${count}"
-staged = "🗃️×${count}"
-renamed = "📛×${count}"
-deleted = "🗑️×${count}"
+ahead = " ×${count}"
+behind = " ×${count}"
+diverged = " ×${↑ahead_count}×${↓behind_count}"
+untracked = "×${count}"
+stashed = " "
+modified = " ×${count}"
+staged = " ×${count}"
+renamed = " ×${count}"
+deleted = " ×${count}"
 style = "bg:#FCA17D"
 format = '[$all_status$ahead_behind ]($style)'
 
@@ -146,8 +147,7 @@ format = '[$all_status$ahead_behind ]($style)'
 added_style = "bg:#FCA17D"
 deleted_style = "bg:#FCA17D"
 disabled = false
-format = '([📊{+$added]($added_style))([,-$deleted}]($deleted_style))'
-
+format = '([ +$added]($added_style))([,-$deleted]($deleted_style))'
 
 [golang]
 symbol = ""
@@ -155,6 +155,7 @@ style = "bg:#86BBD8"
 format = '[ $symbol ($version)]($style)'
 
 [gradle]
+symbol = ""
 style = "bg:#86BBD8"
 format = '[ $symbol($version) ]($style)'
 
@@ -205,17 +206,17 @@ format = '[$symbol ($version) ]($style)'
 python_binary = ['python', 'python3', 'python2']
 detect_extensions =[ "py" ]
 detect_files = [ "requirements.txt", ".python-version", "pyproject.toml", "Pipfile", "tox.ini", "setup.py", "__init__.py" ]
-symbol = "🐍"
+symbol = ""
 style = "bg:#86BBD8"
 format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
 [terraform]
-symbol = "💠"
+symbol = ""
 style = "bg:#86BBD8"
 format = '[$symbol $version$workspace]($style) '
 
 [package]
-symbol = "⬢"
+symbol = ""
 #symbol = ""
 style = "bg:#86BBD8"
 format = '[$symbol $version]($style)'
