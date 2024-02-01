@@ -78,30 +78,9 @@ truncation_symbol = "…/"
 # So either put "Important Documents" before "Documents" or use the substituted version:
 # "Important 󰈙 " = " 󰈙 "
 
-[c]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol($version) ]($style)'
-
-[docker_context]
-symbol = " "
-style = "bg:#06969A"
-format = '[ $symbol$context]($style)'
-
-[elixir]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol($version) ]($style)'
-
-[elm]
-symbol = " "
-style = "bg:#86BBD8"
-format = '[ $symbol($version) ]($style)'
-
 [git_branch]
-#symbol = " "
+#symbol = "  "
 symbol = ""
-#symbol = ""
 truncation_symbol = "…"
 truncation_length = 40
 style = "bg:#FCA17D"
@@ -134,7 +113,7 @@ conflicted = "⚔️"
 ahead = " ×${count}"
 behind = " ×${count}"
 diverged = " ×${↑ahead_count}×${↓behind_count}"
-untracked = "×${count}"
+untracked = " ×${count}"
 stashed = " "
 modified = " ×${count}"
 staged = " ×${count}"
@@ -147,22 +126,13 @@ format = '[$all_status$ahead_behind ]($style)'
 added_style = "bg:#FCA17D"
 deleted_style = "bg:#FCA17D"
 disabled = false
-format = '([ +$added]($added_style))([,-$deleted]($deleted_style))'
+format = '([{ +$added]($added_style))([,-$deleted}]($deleted_style))'
 
-[golang]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version)]($style)'
-
-[gradle]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol($version) ]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+# Software Versions and Dependencies
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol$context]($style)'
 
 [java]
 symbol = ""
@@ -171,10 +141,11 @@ detect_files = ['pom.xml', 'build.gradle.kts', 'build.sbt', '.java-version', 'de
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ]($style)'
 
-[julia]
-symbol = ""
+[package]
+symbol = ""
+#symbol = ""
 style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
+format = '[$symbol $version]($style)'
 
 [nodejs]
 detect_extensions = ['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
@@ -185,11 +156,6 @@ symbol = ""
 style = "bg:#86BBD8"
 format = '[ $symbol ($version) ($engines_version)]($style)'
 
-[nim]
-symbol = "󰆥"
-style = "bg:#86BBD8"
-format = '[ $symbol ($version) ]($style)'
-
 [rust]
 detect_extensions =[ "rs" ]
 detect_files =[ "Cargo.toml" ]
@@ -197,10 +163,10 @@ symbol = ""
 style = "bg:#86BBD8"
 format = '[$symbol ($version) ]($style)'
 
-[scala]
-symbol = ""
+[terraform]
+symbol = ""
 style = "bg:#86BBD8"
-format = '[$symbol ($version) ]($style)'
+format = '[$symbol $version$workspace]($style) '
 
 [python]
 python_binary = ['python', 'python3', 'python2']
@@ -210,16 +176,50 @@ symbol = ""
 style = "bg:#86BBD8"
 format = '[${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 
-[terraform]
-symbol = ""
+[gradle]
+symbol = ""
 style = "bg:#86BBD8"
-format = '[$symbol $version$workspace]($style) '
+format = '[ $symbol($version) ]($style)'
 
-[package]
-symbol = ""
-#symbol = ""
+[nim]
+symbol = "󰆥"
 style = "bg:#86BBD8"
-format = '[$symbol $version]($style)'
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[$symbol ($version) ]($style)'
+
+[c]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol($version) ]($style)'
+
+[elixir]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#86BBD8"
+format = '[ $symbol($version) ]($style)'
+
+[golang]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = ""
+style = "bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
 
 [time]
 disabled = false
